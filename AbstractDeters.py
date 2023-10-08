@@ -19,13 +19,13 @@ from abc import ABC, abstractmethod
 
 class Cycle(ABC):
     def __init__(self, num_tires=0, num_flat=0):
-        self._num_tires = num_tires
+        self._n_tires = num_tires
         self._num_flat = num_flat
 
     # Getter methods
     @property
     def num_tires(self):
-        return self._num_tires
+        return self._n_tires
 
     @property
     def num_flat(self):
@@ -33,15 +33,15 @@ class Cycle(ABC):
 
     # Setter methods
     @num_tires.setter
-    def num_tires(self, num_tires):
-        self._num_tires = num_tires
+    def num_tires(self, _n_tires):
+        self._n_tires = _n_tires
 
     @num_flat.setter
     def num_flat(self, num_flat):
         self._num_flat = num_flat
 
     def __str__(self):
-        return f'number_tires={self.num_tires}, number_flat_tires={self.num_flat}'
+        return f'number_tires={self._n_tires}, number_flat_tires={self.num_flat}'
 
     @abstractmethod
     def ride(self):
@@ -53,8 +53,8 @@ class Cycle(ABC):
 
 
 class Bicycle(Cycle):
-    def __init__(self, num_tires=0, num_flat=0):
-        super().__init__(num_tires, num_flat)
+    def __init__(self, _n_tires=0, num_flat=0):
+        super().__init__(_n_tires, num_flat)
 
     def ride(self):
         return 'Pedal to begin riding the bicycle.'
